@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Mercury",
+    "mass_kg": 3.301e23,
+    "distance_from_sun_km": 57894376,
+    "moons": []
+  },
+  {
+    "name": "Venus",
+    "mass_kg": 4.867e24,
+    "distance_from_sun_km": 108159261,
+    "moons": []
+  },
+  {
+    "name": "Earth",
+    "mass_kg": 5.972e24,
+    "distance_from_sun_km": 149597871,
+    "moons": ["Moon"]
+  },
+  {
+    "name": "Mars",
+    "mass_kg": 6.417e23,
+    "distance_from_sun_km": 227987155,
+    "moons": ["Phobos", "Deimos"]
+  },
+  {
+    "name": "Jupiter",
+    "mass_kg": 1.899e27,
+    "distance_from_sun_km": 778567158,
+    "moons": ["Io", "Europa", "Ganymede", "Callisto"]
+  },
+  {
+    "name": "Saturn",
+    "mass_kg": 5.685e26,
+    "distance_from_sun_km": 1433536556,
+    "moons": ["Titan", "Enceladus", "Rhea", "Iapetus", "Dione"]
+  },
+  {
+    "name": "Uranus",
+    "mass_kg": 8.682e25,
+    "distance_from_sun_km": 2875031718,
+    "moons": ["Titania", "Oberon", "Umbriel", "Ariel", "Miranda"]
+  },
+  {
+    "name": "Neptune",
+    "mass_kg": 1.024e26,
+    "distance_from_sun_km": 4504391887,
+    "moons": ["Triton", "Nereid", "Proteus"]
+  }
+]

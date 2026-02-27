@@ -8,3 +8,9 @@ This project demonstrate:
 -File Handling
 -Input validation
 -Unit tetsing
+
+Wikipedia links for the data.
+https://en.wikipedia.org/wiki/Planetary_mass
+https://en.wikipedia.org/wiki/List_of_Solar_System_objects_most_distant_from_the_Sun
+https://en.wikipedia.org/wiki/List_of_Solar_System_objects_by_size
+https://en.wikipedia.org/wiki/List_of_natural_satellites
