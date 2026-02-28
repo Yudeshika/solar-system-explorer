@@ -7,6 +7,7 @@ Converts free text input into structured commands that the application can proce
 """
 
 from dataclasses import dataclass
+from validators import clean_text, normalize_planet_name
 
 @dataclass
 class Intent:
@@ -25,8 +26,8 @@ class QueryParser:
     def parse(self, question: str) -> Intent:
         if question is None:
             return Intent(kind="UNKNOWN", planet_name="")
-
-        cleaned = self._clean_text(question)
+        
+        cleaned = clean_text(question)
         words = cleaned.split()
 
         if not words:
@@ -54,13 +55,6 @@ class QueryParser:
             return Intent(kind="EXISTS", planet_name=planet_name)
 
         return Intent(kind="UNKNOWN", planet_name=planet_name)
-
-    def _clean_text(self, text: str) -> str:
-        # Lowercase and remove common punctuations.
-        text = text.strip().lower()
-        for ch in ["?", "!", ".", ",", ":", ";", "'", "\""]:
-            text = text.replace(ch, "")
-        return text
 
     def _extract_planet_name(self, words: list[str]) -> str:
         """
