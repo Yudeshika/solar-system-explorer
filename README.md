@@ -17,3 +17,9 @@ https://en.wikipedia.org/wiki/List_of_natural_satellites
 
 # Run tests using the cmd
 python3 -m unittest discover -s tests -v
+
+# Run the application GUI
+python3 gui.py
+
+# Command line interface exists too
+python3 main.py

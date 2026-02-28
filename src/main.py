@@ -80,6 +80,13 @@ def handle_list_planets(repo) -> None:
     print(", ".join(planets))
 
 
+def get_planet_or_show_error(repo, planet_name: str):
+    # Get a planet from the repository or print an error message if not found.
+    planet = repo.get_planet(planet_name)
+    if planet is None:
+        print(f"'{planet_name}' is not in the list of planets.")
+    return planet
+
 def handle_question(repo, parser) -> None:
     question = read_non_empty_input("\nAsk your question: ")
 
@@ -94,19 +101,15 @@ def handle_question(repo, parser) -> None:
 
     intent = parser.parse(question)
 
-    # Simple “dispatcher” pattern: handle each intent type cleanly.
+    # Simple "dispatcher" pattern: handle each intent type cleanly.
     if intent.kind == "EVERYTHING":
-        planet = repo.get_planet(intent.planet_name)
-        if planet is None:
-            print(f"'{intent.planet_name}' is not in the list of planets.")
-        else:
+        planet = get_planet_or_show_error(repo, intent.planet_name)
+        if planet:
             print("\n" + planet.summary())
 
     elif intent.kind == "MASS":
-        planet = repo.get_planet(intent.planet_name)
-        if planet is None:
-            print(f"'{intent.planet_name}' is not in the list of planets.")
-        else:
+        planet = get_planet_or_show_error(repo, intent.planet_name)
+        if planet:
             print(f"{planet.name} has a mass of {planet.mass_kg:.3e} kg.")
 
     elif intent.kind == "EXISTS":
@@ -117,14 +120,12 @@ def handle_question(repo, parser) -> None:
             print(f"No. {intent.planet_name} is not in the list of planets.")
 
     elif intent.kind == "MOONS":
-        planet = repo.get_planet(intent.planet_name)
-        if planet is None:
-            print(f"'{intent.planet_name}' is not in the list of planets.")
-        else:
+        planet = get_planet_or_show_error(repo, intent.planet_name)
+        if planet:
             print(f"{planet.name} has {planet.moon_count()} moon(s).")
 
     else:
-        print("Sorry, I didn’t understand that question. Try asking about mass, moons, or a planet name.")
+        print("Sorry, I didn't understand that question. Try asking about mass, moons, or a planet name.")
 
 
 def main() -> None:
