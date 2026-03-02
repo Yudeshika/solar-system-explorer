@@ -35,7 +35,7 @@ class TestPlanetModel(unittest.TestCase):
 
         summary = mars.summary()
 
-        # I won't check the whole string exactly (too fragile).
+        # I won't check the whole string exactly.
         # Just check important parts exist.
         self.assertIn("Name: Mars", summary)
         self.assertIn("Mass (kg):", summary)

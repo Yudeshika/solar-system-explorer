@@ -16,7 +16,7 @@ class Intent:
     planet_name: str
 class QueryParser:
     def __init__(self):
-        # Optional: Keep a small set of known planet names for better extraction.
+        # Keep a small set of known planet names for better extraction.
         self.known_planets = {
             "mercury", "venus", "earth", "mars",
             "jupiter", "saturn", "uranus", "neptune",
