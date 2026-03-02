@@ -1,6 +1,6 @@
 """
 GUI module for the Solar System Explorer application.
-This module provides a simple command-line interface for users to interact with the application.
+This module provides a simple graphical user interface for users to interact with the application.
 
 """
 

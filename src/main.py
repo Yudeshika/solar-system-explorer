@@ -1,5 +1,5 @@
 """
-Mainen entry point for the application. 
+Main entry point for the application. 
 This file initializes the application, display the menu, and handles user interactions. 
 It serves as the central hub that connects the various components of the application, such as the repository, parser, and validators.
 """
@@ -47,9 +47,6 @@ def read_menu_choice() -> str:
 def safe_load_system():
     """
     Attempt to load repository and parser.
-
-    This lets main.py run even if you haven't finished the other modules yet.
-    When you implement them, this function will start using them automatically.
     """
     try:
         from repository import PlanetRepository
@@ -72,7 +69,7 @@ def safe_load_system():
 
 def handle_list_planets(repo) -> None:
     if repo is None:
-        print("Planet data is not available yet. Implement repository.py next.")
+        print("Planet data is not available yet.")
         return
 
     planets = repo.list_planets()
@@ -93,10 +90,9 @@ def handle_question(repo, parser) -> None:
     if repo is None or parser is None:
         print("\nI can't answer questions yet because:")
         if repo is None:
-            print("- Planet data/repository is not implemented or failed to load.")
+            print("- Planet data/repository failed to load.")
         if parser is None:
-            print("- Query parser is not implemented or failed to load.")
-        print("\nNext steps: implement repository.py and parser.py.")
+            print("- Query parser failed to load.")
         return
 
     intent = parser.parse(question)
@@ -131,7 +127,6 @@ def handle_question(repo, parser) -> None:
 def main() -> None:
     print_header()
 
-    # This will warn gracefully until repository/parser is built.
     repo, parser = safe_load_system()
 
     while True:
